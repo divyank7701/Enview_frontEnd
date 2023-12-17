@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Monitoring Alerts</title>
+
+</head>
+<style>
+
+
+.app_container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container,
+.search-container,
+.date-range-search-container {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+select,
+input {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.alerts-container {
+    margin-top: 20px;
+}
+
+/* Style the alerts */
+.alert {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fafafa;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.alert h3 {
+    color: #007bff;
+}
+
+</style>
+
+
+<body>
+    <div class="app_container" >
+        <div class="filter-container">
+            <label for="alertType"> Alert Type:</label>
+            <select id="alertType" onchange="filterAlerts()">
+                <option value="">All</option>
+                <option value="Unsafe driving">Unsafe driving</option>
+                <option value="Distracted driver">Distracted driver</option>
+               
+            </select>
+        </div>
+        <div class="search-container">
+            <input type="text" placeholder="Search by driver name, vehicle ID, or alert type" id="searchInput">
+            <button onclick="searchAlerts()">Search</button>
+        </div>
+ 
+        <div class="date-range-search-container">
+            <label for="startDateInput">Start Date:</label>
+            <input type="date" id="startDateInput">
+            <label for="endDateInput">End Date:</label>
+            <input type="date" id="endDateInput">
+            <button onclick="searchByDateRange()">Search</button>
+        </div>
+
+
+        <div class="alerts-container" id="alertsContainer">
+            <!-- Alerts will be dynamically added here -->
+        </div>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
